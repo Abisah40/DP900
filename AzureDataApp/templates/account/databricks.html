@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Implement data engineering solutions using Azure Databricks</h3>
+    <p>
+        Azure Databricks is a cloud-based data platform that combines data engineering, data science,
+        and machine learning in a single, unified workspace. Built on top of Apache Spark,
+        it allows organizations to process, analyze, and visualize large amounts of data.
+    </p>
+    <p>
+        By connecting to a wide range of data sources—from cloud providers like Azure SQL Database,
+        Amazon S3 and Google Cloud Storage, to enterprise systems such as SAP and Oracle—Azure Databricks
+        can integrate and transform data from many locations.
+    </p>
+    <p>
+        Once data is ingested, teams across sales, marketing, operations, finance, HR, and sustainability can use Databricks for advanced 
+        analytics, machine learning, business intelligence, and AI-driven insights.
+    </p>
+    <p>At its core, Azure Databricks helps organizations to:</p>
+    <p>1. Integrate data from multiple sources</p>
+    <p>2. Engineer and transform raw data into usable formats</p>
+    <p>3. Store and manage data efficiently with governance and security</p>
+    <p>4. Apply real-time analytics, machine learning, and AI models</p>
+    <p>5. Drive better business decisions and outcomes</p>
+    <h3>Data lakehouse</h3>
+    <p>
+        <h4>A data lakehouse is a data management approach that blends the strengths of both data lakes and data warehouses.</h4> 
+        It offers scalable storage and processing, allowing organizations to handle diverse workloads—such as machine learning and 
+        business intelligence—without relying on separate, disconnected systems. By centralizing data,
+        a lakehouse supports a single source of truth, reduces duplicate costs, and ensures that information stays up to date.
+    </p>
+    <p>
+        Many lakehouses follow a layered design pattern where data is gradually improved, enriched, and refined as it moves through different stages
+        of processing. This layered approach—commonly called the medallion architecture—organizes data into stages that build on one another,
+        making it easier to manage and use effectively.
+    </p>
+    <h4>The Databricks lakehouse uses two key technologies:</h4>
+    <p>1. Delta Lake: an optimized storage layer that supports ACID transactions and schema enforcement.</p>
+    <p>2. Unity Catalog: a unified, fine-grained governance solution for data and AI.</p>
+    <h3>Get started with Azure Databricks</h3>
+    <p>You can create an Azure Databricks workspace by:</p>
+    <p>1. Using the Azure portal user interface.</p>
+    <p>2. Using an Azure Resource Manager (ARM), Bicep or Terraform template.</p>
+    <p>3. Using the New-AzDatabricksWorkspace Azure PowerShell cmdlet.</p>
+    <p>4. Using the az databricks workspace create Azure command line interface (CLI) command.</p>
+    <p>When you create a workspace, you must specify the following:</p>
+
+    <p>1. A workspace name.</p>
+    <p>2. Select an available region.</p>
+    <p>3. A pricing tier:</p>
+    <p>
+        (a). Premium - Role-based access controls, Unity Catalog, SQL, Mosaic AI, serverless compute, Genie Code, and other enterprise-level
+        features.
+    </p>
+    <p>(b). Trial - A 14-day free trial of a Premium-level workspace</p>
+    <p>4. Workspace type:
+    <p>
+        (a). Serverless - Pre-configured with serverless compute and default storage.
+        Azure Databricks recommends a serverless workspace for the simplest quick start.
+    </p>
+    <p>(b). Hybrid (also called Classic) - Provisions compute and storage in your Azure subscription.</p>
+    <p>
+        5. Managed Resource Group name (optional): an automatically created resource group where Azure provisions and manages the infrastructure
+        resources needed for your Databricks workspace.
+    </p>
+
+    <h4>To create an Azure Databricks workspace using the Azure CLI, use the az databricks workspace command:</h4>
+    <p>az databricks workspace create \
+    --resource-group myresourcegroup \
+    --name mydatabricksws \
+    --location westus2 \
+    --sku premium</p>
+    <p><h4>OR</h4> az databricks workspace create --resource-group MyResourceGroup --name MyWorkspace --location westus --sku standard --compute-mode Hybrid</p>
+    <h4>The equivalent New-AzDatabricksWorkspace PowerShell cmdlet:</h4>
+    <p>New-AzDatabricksWorkspace -Name mydatabricksws -ResourceGroupName myresourcegroup -Location westus2 -ManagedResourceGroupName databricks-group -Sku premium</p>
+    <p><h4>OR</h4></p>
+
+
+    <div class="pre">
+        <a href="{% url 'analytical' %}">previous</a>
+    </div>
+    
+</body>
+</html>

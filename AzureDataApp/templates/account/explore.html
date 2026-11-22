@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+
+    <title>Explore</title>
+</head>
+<body>
+    <h3>Explore file storage</h3>
+    <p>
+        The ability to store data in files is a core element of any computing system. Files can be stored in 
+        local file systems on the hard disk of your personal computer, and on removable media such as USB drives; but in most organizations,
+        important data files are stored centrally in some kind of shared file storage system. Increasingly, that central storage 
+        location is hosted in the cloud, enabling cost-effective, secure, and reliable storage for large volumes of data.
+    </p>
+    <p>The specific file format used to store data depends on many factors, including:</p>
+    <p>1. The type of data being stored (structured, semi-structured, or unstructured).</p>
+    <p>2. The applications and services that need to read, write, and process the data.</p>
+    <p>3. The need for the data files to be readable by humans, or optimized for efficient storage and processing.</p>
+    <p>4. Some common file formats are discussed below.</p>
+    <h3>TYPE OF FILE FORMAT</h3>
+
+    <h3>Delimited text files</h3>
+    <p>
+        Data is often stored in plain text format with specific field delimiters and row terminators. 
+        The most common format for delimited data is comma-separated values (CSV) in which fields are separated by commas, 
+        and rows are terminated by a carriage return / new line. Optionally, the first line may include the field names. Other common formats 
+        include tab-separated values (TSV) and space-delimited (in which tabs or spaces are used to separate fields), and fixed-width data in which
+        each field is allocated a fixed number of characters. Delimited text is a good choice for structured data that needs to be 
+        accessed by a wide range of applications and services in a human-readable format.
+    </p>
+
+    <p>The following example shows customer data in comma-delimited format:</p>
+
+    <img src="{% static 'images/cdv.png' %}" alt="cdv">
+
+    <h3>JavaScript Object Notation (JSON)</h3>
+    <p>
+        JSON is a widely used format in which a hierarchical document schema is used to define data entities (objects) 
+        that have multiple attributes. Each attribute might be an object (or a collection of objects);
+        making JSON a flexible format that's good for both structured and semi-structured data.
+    </p>
+
+    <p>
+        The following example shows a JSON document containing a collection of customers. Each customer has three attributes
+        (firstName, lastName, and contact), and the contact attribute contains a collection of objects that represent one or more contact methods
+        (email or phone). Objects are enclosed in braces ({..}) and collections are enclosed in square brackets ([..]). 
+        Attributes are represented by name : value pairs and separated by commas (,).
+    </p>
+
+    <h3>Extensible Markup Language (XML)</h3>
+    <p>
+        XML is a human-readable data format that was popular in the 1990s and 2000s. It's largely been superseded by the less verbose JSON format,
+        but there are still some systems that use XML to represent data. XML uses tags enclosed in angle-brackets (<../>)
+        to define elements and attributes, as shown in this example:
+    </p>
+    <img src="{% static 'images/xml.png' %}" class="xml" alt="xml">
+    <h3>Binary Large Object (BLOB)</h3>
+    <p>
+        Ultimately, all files are stored as binary data (1's and 0's), but in the human-readable formats discussed above,
+        the bytes of binary data are mapped to printable characters (typically through a character encoding scheme such as ASCII or Unicode).
+        Some file formats however, particularly for unstructured data, store the data as raw binary that must be interpreted by
+        applications and rendered. Common types of data stored as binary include images, video, audio, and application-specific documents.
+        When working with data like this, data professionals often refer to the data files as BLOBs (Binary Large Objects).
+    </p>
+    <h3>Optimized file formats</h3>
+    <p>
+        While human-readable formats for structured and semi-structured data can be useful, they're typically not optimized for storage space
+        or processing. Over time, some specialized file formats that enable compression, indexing, and efficient storage and processing have 
+        been developed.Some common optimized file formats you might see include Parquet and Avro:
+    </p>
+    <p>
+        1. Parquet is a columnar data format that's widely used in data lakes and lakehouses. It's an Apache project.
+        A Parquet file contains row groups. Data for each column is stored together in the same row group. 
+        Each row group contains one or more chunks of data. A Parquet file includes metadata that describes the set of rows found in each chunk.
+        An application can use this metadata to quickly locate the correct chunk for a given set of rows, 
+        and retrieve the data in the specified columns for these rows.
+        Parquet specializes in storing and processing nested data types efficiently and supports efficient compression and encoding schemes.
+    </p>
+    <img src="{% static 'images/parquet.png' %}" class="parquet" alt="parquet">
+    <p>
+        2. Avro is a row-based format. It's an Apache project. Each file contains a header that describes the structure of the data in the file.
+        This header is stored as JSON. The data is stored as binary information in one or more blocks of records.
+        An application uses the information in the header to parse the binary data and extract the fields it contains. 
+        Avro is a good format for compressing data and minimizing storage and network bandwidth requirements.
+    </p>
+    <img src="{% static 'images/avro.png' %}" class="avro" alt="avro">
+
+    <p>
+        3. Delta Lake is an open-source storage format that builds on Parquet by adding a transaction log,
+        which enables ACID transactions, data versioning, and reliable updates on top of files stored in a data lake.
+    </p>
+
+    <img src="{% static 'images/delta.png' %}" class="delta" alt="delta">
+    <a href="{% url 'databases' %}">Explore databases</a>
+
+    <div class="pre">
+        <a href="{% url 'home' %}">previous</a>
+    </div>
+
+</body>
+</html>

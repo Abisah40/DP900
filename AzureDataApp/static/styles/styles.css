@@ -1,0 +1,35 @@
+body{
+    background: bisque;
+    img{
+        max-width: 50%;
+        height: auto;
+    }
+    .relational{
+        max-width: 40%;
+        height: auto;
+    }
+    .json{
+        img{
+            max-width: 50%;
+            height: auto;
+        }
+    }
+    .customer{
+        img{
+            max-width: 70%;
+            height: 50%;
+        }
+    }
+    a{
+        justify-content: right;
+        display: flex;
+        color: black;
+        font-weight: bold;
+    }
+    .pre{
+        justify-content: left;
+        display: flex;
+        color: black;
+        font-weight: bold;
+    }
+}
